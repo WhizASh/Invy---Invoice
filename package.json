@@ -1,0 +1,14 @@
+{
+  "name": "invy-invoice-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "test": "npm --prefix backend run test && npm --prefix frontend run test",
+    "db:check": "npm --prefix backend run db:check",
+    "migrate": "npm --prefix backend run migrate"
+  }
+}
