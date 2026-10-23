@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Print Specific Rules for High-Fidelity Letterhead PDF */
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Hide UI elements from print output */
+  .no-print,
+  nav,
+  header,
+  footer,
+  aside,
+  button,
+  .form-panel {
+    display: none !important;
+  }
+
+  /* Expand print invoice container to fill printable A4 area */
+  #invoice-preview-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    position: static !important;
+  }
+
+  #invoice-sheet {
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Ensure table elements don't get awkwardly split across pages */
+  tr, .avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
