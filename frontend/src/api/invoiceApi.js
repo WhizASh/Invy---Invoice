@@ -1,4 +1,5 @@
-const API_BASE = '/api/invoices';
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
+const API_BASE = API_BASE_URL ? `${API_BASE_URL}/api/invoices` : '/api/invoices';
 
 export async function saveInvoice(invoiceData) {
   const response = await fetch(API_BASE, {
